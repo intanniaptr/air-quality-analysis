@@ -4,7 +4,7 @@
 
 This project focuses on exploratory data analysis (EDA) of Beijing air quality data collected from multiple monitoring stations between March 2013 and February 2017.
 
-The analysis aims to explore air pollution patterns, compare pollutant concentrations across monitoring stations, and examine relationships between air quality variables. The findings are presented through an interactive dashboard built with Streamlit.
+The project aims to explore air pollution patterns, compare pollutant concentrations across monitoring stations, and investigate relationships between air quality variables. The findings are presented through an interactive dashboard developed using Streamlit.
 
 ## Project Objectives
 
@@ -12,7 +12,7 @@ The analysis aims to explore air pollution patterns, compare pollutant concentra
 - Analyze changes in PM2.5 and PM10 concentrations over time.
 - Compare average PM2.5 concentrations across monitoring stations.
 - Explore relationships between air pollution variables.
-- Communicate the results through data visualizations and an interactive dashboard.
+- Communicate analytical findings through data visualizations and an interactive dashboard.
 
 ## Dataset
 
@@ -21,48 +21,47 @@ The dataset contains air quality observations from 12 monitoring stations in Bei
 | Attribute | Description |
 |---|---|
 | Location | Beijing, China |
-| Observation period | March 2013 – February 2017 |
-| Number of observations | 420,768 |
-| Monitoring stations | 12 |
-| Main variables analyzed | PM2.5 and PM10 |
+| Observation Period | March 2013 – February 2017 |
+| Number of Observations | 420,768 |
+| Monitoring Stations | 12 |
+| Main Variables Analyzed | PM2.5 and PM10 |
 
-The dataset files are stored in the `data/` directory. The dashboard uses `dashboard/main_data.csv`.
+The original station-level datasets are stored in the `data/` directory. The dashboard uses the processed dataset available at `dashboard/main_data.csv`.
 
 ## Tools and Libraries
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Plotly
-- Streamlit
-- Jupyter Notebook
+- **Programming Language:** Python
+- **Data Analysis:** Pandas, NumPy
+- **Data Visualization:** Matplotlib, Seaborn, Plotly
+- **Dashboard Development:** Streamlit
+- **Development Environment:** Jupyter Notebook
 
 ## Analysis Process
 
-1. **Data Wrangling** — load, inspect, and prepare the dataset for analysis.
-2. **Data Quality Assessment** — examine data types, missing values, and potential data quality issues.
-3. **Data Cleaning** — handle data quality issues where appropriate and document the decisions made.
-4. **Exploratory Data Analysis (EDA)** — investigate pollutant distributions, temporal patterns, station-level differences, and correlations.
-5. **Data Visualization** — present important patterns through charts and statistical summaries.
-6. **Dashboard Development** — build an interactive dashboard using Streamlit.
+1. **Data Wrangling** — Load, inspect, and prepare the dataset for analysis.
+2. **Data Quality Assessment** — Examine data types, missing values, and potential data quality issues.
+3. **Data Cleaning** — Address data quality issues where appropriate and document the decisions made.
+4. **Exploratory Data Analysis (EDA)** — Investigate pollutant distributions, temporal patterns, station-level differences, and correlations.
+5. **Data Visualization** — Present important patterns through charts and statistical summaries.
+6. **Dashboard Development** — Develop an interactive dashboard using Streamlit.
 
 ## Key Findings
 
-The dashboard highlights the following observations:
+The analysis highlights the following observations:
 
-- **Highest average PM2.5 concentration by station:** Dongsi, approximately 85.7 µg/m³.
-- **Lowest average PM2.5 concentration by station:** Dingling, approximately 65.4 µg/m³.
-- **Highest monthly average PM2.5:** December 2015, approximately 148.8 µg/m³.
-- **Lowest monthly average PM2.5:** February 2016, approximately 42.9 µg/m³.
-- **PM2.5 and PM10 correlation:** approximately 0.88, indicating a strong positive linear relationship in the analyzed data.
+- **Highest Average PM2.5 by Station:** Dongsi, approximately 85.7 µg/m³.
+- **Lowest Average PM2.5 by Station:** Dingling, approximately 65.4 µg/m³.
+- **Highest Monthly Average PM2.5:** December 2015, approximately 148.8 µg/m³.
+- **Lowest Monthly Average PM2.5:** February 2016, approximately 42.9 µg/m³.
+- **PM2.5 and PM10 Correlation:** Approximately 0.88, indicating a strong positive linear relationship in the analyzed data.
 
 These findings describe the analyzed dataset and do not establish causal relationships.
 
+*Note: The reported values should be consistent with the calculations and filters used in the notebook and dashboard.*
+
 ## Interactive Dashboard
 
-The dashboard includes:
+The interactive dashboard allows users to explore air quality data through the following features:
 
 - Summary statistics and key findings.
 - Monthly air quality trends.
@@ -71,10 +70,9 @@ The dashboard includes:
 - A correlation heatmap.
 - A PM2.5 versus PM10 scatter plot.
 - Relative PM2.5 concentration categories.
-- A data table and CSV download functionality.
+- An interactive data table and CSV download functionality.
 
-**Live Dashboard:**  
-[Open Air Quality Analysis Dashboard](https://air-quality-analysis-4oux2y97vvycbml6ipcuwc.streamlit.app/)
+**Live Dashboard:** [Open Air Quality Analysis Dashboard](https://air-quality-analysis-4oux2y97vvycbml6ipcuwc.streamlit.app/)
 
 ## Project Structure
 
@@ -82,8 +80,7 @@ The dashboard includes:
 Air_Quality_Analysis_Submission/
 ├── dashboard/
 │   ├── dashboard.py
-│   ├── main_data.csv
-│   └── requirements.txt
+│   └── main_data.csv
 ├── data/
 │   ├── PRSA_Data_Aotizhongxin_20130301-20170228.csv
 │   ├── PRSA_Data_Changping_20130301-20170228.csv
@@ -91,45 +88,65 @@ Air_Quality_Analysis_Submission/
 │   ├── PRSA_Data_Dongsi_20130301-20170228.csv
 │   └── ... other monitoring station datasets
 ├── notebook.ipynb
-├── README.md
 ├── requirements.txt
+├── README.md
 └── url.txt
 ```
 
-## Setup Environment
+## Setup and Installation
 
-### Using Python Virtual Environment
+### Prerequisites
 
-Create and activate a virtual environment:
+- Python 3 installed on your system.
+- Git installed on your system.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/intanniaptr/air-quality-analysis.git
+cd air-quality-analysis
+```
+
+### 2. Create a Virtual Environment
 
 ```bash
 python3 -m venv .venv
+```
+
+Activate the virtual environment.
+
+**macOS / Linux:**
+
+```bash
 source .venv/bin/activate
 ```
 
-Install the required libraries:
+**Windows:**
 
 ```bash
+.venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### Run the Streamlit Dashboard
+### 4. Run the Dashboard
 
-Navigate to the dashboard directory:
+From the repository root directory, execute:
 
 ```bash
-cd dashboard
-pip install -r requirements.txt
-streamlit run dashboard.py
+streamlit run dashboard/dashboard.py
 ```
 
-The dashboard will be available at the local URL displayed in the terminal, usually `http://localhost:8501`.
+Open the local URL displayed in the terminal, usually `http://localhost:8501`.
 
 ## Conclusion
 
-This project demonstrates how exploratory data analysis and interactive visualization can be used to investigate air quality observations in Beijing. The analysis explores temporal patterns, differences across monitoring stations, and relationships between pollutant concentrations.
-
-The interactive dashboard provides an accessible way to explore the data and review the findings.
+This project demonstrates how exploratory data analysis and interactive visualization can be used to investigate air quality observations in Beijing. By examining temporal patterns, differences across monitoring stations, and relationships between pollutant concentrations, the project provides an interactive way to explore air quality data and review analytical findings.
 
 ---
 
