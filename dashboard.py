@@ -20,6 +20,7 @@ st.set_page_config(
 # =========================================================
 # 2. CUSTOM STYLING
 # =========================================================
+
 st.markdown(
     """
     <style>
@@ -38,9 +39,14 @@ st.markdown(
         background-color: rgba(11, 17, 32, 0.95);
     }
 
+    /* ===== SIDEBAR BASE ===== */
     [data-testid="stSidebar"] {
         background-color: #111B2E;
         border-right: 1px solid #263852;
+    }
+
+    [data-testid="stSidebar"] > div:first-child {
+        padding-top: 1.2rem;
     }
 
     [data-testid="stSidebar"] h1,
@@ -50,6 +56,182 @@ st.markdown(
         color: #E5EDF7;
     }
 
+    /* Sidebar header */
+    .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 5px 0 20px;
+    }
+
+    .sidebar-brand-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: #15374B;
+        color: #67E8F9;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .sidebar-brand-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .sidebar-brand-title {
+        color: #F8FAFC;
+        font-size: 17px;
+        font-weight: 750;
+        line-height: 1.35;
+    }
+
+    .sidebar-brand-subtitle {
+        margin-top: 4px;
+        color: #94A3B8;
+        font-size: 9px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+    }
+
+    .sidebar-year {
+        align-self: flex-start;
+        padding: 4px 7px;
+        border-radius: 20px;
+        background: #15374B;
+        color: #67E8F9;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .sidebar-divider {
+        height: 1px;
+        margin-bottom: 20px;
+        background: #334155;
+    }
+
+    .sidebar-heading {
+        margin-bottom: 6px;
+        color: #F1F5F9;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .sidebar-description {
+        margin-bottom: 20px;
+        color: #94A3B8;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .sidebar-field-label {
+        margin: 12px 0 8px;
+        color: #DCE7F5;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* Station selector */
+    [data-testid="stSidebar"] [data-baseweb="select"] > div {
+        background-color: #0B1424;
+        border-color: #334155;
+        border-radius: 11px;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] {
+        background-color: #15374B !important;
+        border: 1px solid #28566A !important;
+        border-radius: 8px !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] span {
+        color: #A5F3FC !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] svg {
+        color: #A5F3FC !important;
+        fill: #A5F3FC !important;
+    }
+
+    /* Date input */
+    [data-testid="stSidebar"] [data-baseweb="input"] > div {
+        background-color: #0B1424;
+        border: 1px solid #334155;
+        border-radius: 11px;
+    }
+
+    [data-testid="stSidebar"] input {
+        color: #F1F5F9;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="select"]:focus-within,
+    [data-testid="stSidebar"] [data-baseweb="input"]:focus-within {
+        border-color: #22D3EE;
+        box-shadow: 0 0 0 1px #22D3EE;
+    }
+
+    /* Sidebar information cards */
+    .sidebar-info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+        margin-top: 15px;
+    }
+
+    .sidebar-info-card {
+        min-width: 0;
+        padding: 12px;
+        border: 1px solid #203B53;
+        border-radius: 13px;
+        background: #153044;
+    }
+
+    .sidebar-info-icon {
+        margin-bottom: 7px;
+        color: #67E8F9;
+        font-size: 22px;
+    }
+
+    .sidebar-info-label {
+        margin-bottom: 4px;
+        color: #94A3B8;
+        font-size: 12px;
+    }
+
+    .sidebar-info-value {
+        color: #F1F5F9;
+        font-size: 14px;
+        font-weight: 650;
+        overflow-wrap: anywhere;
+    }
+
+    .sidebar-period-note {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 17px;
+        padding-top: 14px;
+        border-top: 1px solid #334155;
+    }
+
+    .sidebar-period-note span {
+        margin-top: 5px;
+        color: #94A3B8;
+        font-size: 11px;
+    }
+
+    .sidebar-period-note strong {
+        color: #CBD5E1;
+        font-size: 12px;
+        font-weight: 500;
+        overflow-wrap: anywhere;
+    }
+
+    /* ===== MAIN DASHBOARD ===== */
     .hero {
         background: linear-gradient(120deg, #14243B, #103D4A);
         padding: 30px 32px;
@@ -116,14 +298,14 @@ st.markdown(
     }
 
     .insight-card {
-    background: #111B2E;
-    border: 1px solid #263852;
-    border-radius: 14px;
-    padding: 17px 18px;
-    min-height: 175px;
-    height: 100%;
-    box-sizing: border-box;
-}
+        background: #111B2E;
+        border: 1px solid #263852;
+        border-radius: 14px;
+        padding: 17px 18px;
+        min-height: 175px;
+        height: 100%;
+        box-sizing: border-box;
+    }
 
     .insight-kicker {
         color: #67E8F9;
@@ -160,7 +342,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
 
 # =========================================================
 # 3. LOAD DATA
@@ -259,37 +440,102 @@ if "season" not in df.columns:
     df["season"] = df["datetime"].dt.month.map(month_to_season)
 
 
-# =========================================================
-# 4. SIDEBAR FILTERS
-# =========================================================
-st.sidebar.markdown("## ⚙️ Pengaturan Analisis")
-st.sidebar.caption("Pilih cakupan data yang ingin dieksplorasi.")
-st.sidebar.divider()
 
-stations = sorted(df["station"].dropna().unique().tolist())
+# =========================================================
+# 4. SIDEBAR FILTERS — REDESIGNED LAYOUT
+# =========================================================
 
-selected_stations = st.sidebar.multiselect(
-    "Stasiun pemantauan",
-    options=stations,
-    default=stations,
+# Header sidebar
+st.sidebar.markdown(
+    """
+    <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">≋</div>
+        <div class="sidebar-brand-text">
+            <div class="sidebar-brand-title">Air Quality Explorer</div>
+            <div class="sidebar-brand-subtitle">
+                BEIJING · ENVIRONMENTAL DATA ANALYTICS
+            </div>
+        </div>
+        <div class="sidebar-year">2013–2017</div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-heading">Pengaturan analisis</div>
+    <div class="sidebar-description">
+        Pilih stasiun dan periode untuk mengeksplorasi kualitas udara.
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
+# Pilihan stasiun
+stations = sorted(df["station"].dropna().unique().tolist())
+
+st.sidebar.markdown(
+    '<div class="sidebar-field-label">Stasiun pemantauan</div>',
+    unsafe_allow_html=True,
+)
+
+selected_stations = st.sidebar.multiselect(
+    "Pilih stasiun",
+    options=stations,
+    default=stations,
+    label_visibility="collapsed",
+    key="station_filter",
+)
+
+# Rentang tanggal
 date_min = df["datetime"].min().date()
 date_max = df["datetime"].max().date()
 
+st.sidebar.markdown(
+    '<div class="sidebar-field-label">Rentang tanggal</div>',
+    unsafe_allow_html=True,
+)
+
 date_range = st.sidebar.date_input(
-    "Rentang tanggal",
+    "Pilih periode",
     value=(date_min, date_max),
     min_value=date_min,
     max_value=date_max,
+    label_visibility="collapsed",
+    key="date_filter",
 )
 
-st.sidebar.divider()
-st.sidebar.caption("Dataset: Beijing Multi-Site Air Quality")
-st.sidebar.caption(
-    f"Periode: {date_min:%d %b %Y} – {date_max:%d %b %Y}"
+# Tentukan periode yang dipilih untuk kartu informasi
+if isinstance(date_range, (tuple, list)) and len(date_range) == 2:
+    period_start, period_end = date_range
+    period_text = (
+        f"{period_start:%d %b %Y} – {period_end:%d %b %Y}"
+    )
+else:
+    period_text = "Pilih tanggal mulai dan akhir"
+
+# Kartu informasi bagian bawah
+st.sidebar.markdown(
+    f"""
+    <div class="sidebar-info-grid">
+        <div class="sidebar-info-card">
+            <div class="sidebar-info-icon">▤</div>
+            <div class="sidebar-info-label">Dataset</div>
+            <div class="sidebar-info-value">Multi-Site</div>
+        </div>
+        <div class="sidebar-info-card">
+            <div class="sidebar-info-icon">◎</div>
+            <div class="sidebar-info-label">Cakupan</div>
+            <div class="sidebar-info-value">{len(stations)} stasiun</div>
+        </div>
+    </div>
+    <div class="sidebar-period-note">
+        <span>Sumber data</span>
+        <strong>Beijing Multi-Site Air Quality</strong>
+        <span>Periode dataset</span>
+        <strong>{date_min:%d %b %Y} – {date_max:%d %b %Y}</strong>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
+# Validasi filter
 if not selected_stations:
     st.warning("Pilih minimal satu stasiun pada sidebar.")
     st.stop()
@@ -312,7 +558,6 @@ filtered = df[
 if filtered.empty:
     st.warning("Tidak ada data untuk kombinasi filter yang dipilih.")
     st.stop()
-
 
 # =========================================================
 # 5. SHARED CHART STYLING
@@ -343,14 +588,89 @@ pollutant_colors = {
 # =========================================================
 # 6. OVERVIEW
 # =========================================================
-st.markdown('<div class="section-label">Overview</div>',
-            unsafe_allow_html=True)
+st.markdown(
+    '<div class="section-label">Overview</div>',
+    unsafe_allow_html=True,
+)
+
 st.subheader("Ringkasan Pengamatan")
 
+st.caption(
+    f"Periode terpilih: {start_date:%d %b %Y} – "
+    f"{end_date:%d %b %Y} · "
+    f"{filtered['station'].nunique()} stasiun"
+)
+
 st.markdown(
-    '<div class="section-description">'
-    'Semua metrik menyesuaikan filter stasiun dan tanggal.'
-    '</div>',
+    """
+    <style>
+    /* CSS dashboard yang sudah ada */
+    .hero {
+        border-radius: 18px;
+    }
+
+    /* TEMPEL CSS SIDEBAR BARU MULAI DI SINI */
+
+    [data-testid="stSidebar"] {
+        background: #111C30;
+        border-right: 1px solid #263852;
+    }
+
+    [data-testid="stSidebar"] h2 {
+        color: #F1F5F9;
+        font-weight: 750;
+        letter-spacing: -0.4px;
+    }
+
+    [data-testid="stSidebar"] hr {
+        border-color: #334155;
+        margin: 1.4rem 0;
+    }
+
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] p {
+        color: #CBD5E1;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="select"] > div {
+        background: #0B1424;
+        border-color: #334155;
+        border-radius: 12px;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] {
+        background-color: #15374B !important;
+        border: 1px solid #22647A !important;
+        border-radius: 8px !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] span {
+        color: #A5F3FC !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] svg {
+        fill: #A5F3FC !important;
+        color: #A5F3FC !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="tag"] span {
+        color: #A5F3FC;
+    }
+
+    [data-testid="stSidebar"] input {
+        color: #F1F5F9;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="select"]:focus-within,
+    [data-testid="stSidebar"] [data-baseweb="input"]:focus-within {
+        border-color: #22D3EE;
+        box-shadow: 0 0 0 1px #22D3EE;
+    }
+
+    /* CSS SIDEBAR BARU SELESAI DI SINI */
+
+    </style>
+    """,
     unsafe_allow_html=True,
 )
 
@@ -368,127 +688,72 @@ k3.metric(
 k4.metric("Stasiun terpilih", f"{filtered['station'].nunique():,}")
 
 
-
 # =========================================================
 # 7. KEY FINDINGS
 # =========================================================
 st.markdown("---")
-st.markdown(
-    '<div class="section-label">At a glance</div>',
-    unsafe_allow_html=True,
-)
+st.markdown('<div class="section-label">At a glance</div>', unsafe_allow_html=True)
 st.subheader("Key Findings")
 
-station_means = (
-    filtered.groupby("station")[["PM2.5", "PM10"]]
-    .mean()
-)
-
+station_means = filtered.groupby("station")[["PM2.5", "PM10"]].mean()
 monthly_means = (
-    filtered.assign(
-        month_start=(
-            filtered["datetime"]
-            .dt.to_period("M")
-            .dt.to_timestamp()
-        )
-    )
+    filtered.assign(month_start=filtered["datetime"].dt.to_period("M").dt.to_timestamp())
     .groupby("month_start")[["PM2.5", "PM10"]]
     .mean()
 )
 
 ins1, ins2, ins3 = st.columns(3, gap="medium")
 
-# ---------------------------------------------------------
-# CARD 1: STATION SIGNAL
-# ---------------------------------------------------------
 with ins1:
-    with st.container(border=True):
+    station_pm25 = station_means["PM2.5"].dropna()
+    if not station_pm25.empty:
+        high_station = station_pm25.idxmax()
+        low_station = station_pm25.idxmin()
         st.markdown(
-            '<div class="insight-kicker">STATION SIGNAL</div>',
+            f"""<div class="insight-card">
+                <div class="insight-kicker">Station signal</div>
+                <div class="insight-title">{high_station}</div>
+                <div class="insight-body">Rata-rata PM2.5 tertinggi: <b>{station_pm25.max():.1f} µg/m³</b>.</div>
+                <div class="insight-body">Terendah: {low_station} ({station_pm25.min():.1f} µg/m³).</div>
+            </div>""",
             unsafe_allow_html=True,
         )
+    else:
+        st.info("Data PM2.5 tidak tersedia pada filter ini.")
 
-        station_pm25 = station_means["PM2.5"].dropna()
-
-        if not station_pm25.empty:
-            high_station = station_pm25.idxmax()
-            low_station = station_pm25.idxmin()
-
-            st.markdown(f"### {high_station}")
-
-            st.markdown(
-                f"**Rata-rata PM2.5 tertinggi**  \n"
-                f"{station_pm25.max():.1f} µg/m³"
-            )
-
-            st.caption(
-                f"Terendah: {low_station} "
-                f"({station_pm25.min():.1f} µg/m³)"
-            )
-        else:
-            st.info("Data PM2.5 tidak tersedia.")
-
-
-# ---------------------------------------------------------
-# CARD 2: TEMPORAL SIGNAL
-# ---------------------------------------------------------
 with ins2:
-    with st.container(border=True):
+    monthly_pm25 = monthly_means["PM2.5"].dropna()
+    if not monthly_pm25.empty:
+        peak_month = monthly_pm25.idxmax()
+        trough_month = monthly_pm25.idxmin()
         st.markdown(
-            '<div class="insight-kicker">TEMPORAL SIGNAL</div>',
+            f"""<div class="insight-card">
+                <div class="insight-kicker">Temporal signal</div>
+                <div class="insight-title">{peak_month:%B %Y}</div>
+                <div class="insight-body">Puncak rata-rata PM2.5: <b>{monthly_pm25.max():.1f} µg/m³</b>.</div>
+                <div class="insight-body">Terendah: {trough_month:%B %Y} ({monthly_pm25.min():.1f} µg/m³).</div>
+            </div>""",
             unsafe_allow_html=True,
         )
+    else:
+        st.info("Data bulanan tidak tersedia pada filter ini.")
 
-        monthly_pm25 = monthly_means["PM2.5"].dropna()
-
-        if not monthly_pm25.empty:
-            peak_month = monthly_pm25.idxmax()
-            trough_month = monthly_pm25.idxmin()
-
-            st.markdown(f"### {peak_month:%B %Y}")
-
-            st.markdown(
-                f"**Puncak rata-rata PM2.5**  \n"
-                f"{monthly_pm25.max():.1f} µg/m³"
-            )
-
-            st.caption(
-                f"Terendah: {trough_month:%B %Y} "
-                f"({monthly_pm25.min():.1f} µg/m³)"
-            )
-        else:
-            st.info("Data bulanan tidak tersedia.")
-
-
-# ---------------------------------------------------------
-# CARD 3: POLLUTANT RELATIONSHIP
-# ---------------------------------------------------------
 with ins3:
-    with st.container(border=True):
+    pairs = filtered[["PM2.5", "PM10"]].dropna()
+    if len(pairs) >= 2 and pairs["PM2.5"].nunique() > 1 and pairs["PM10"].nunique() > 1:
+        corr_value = pairs["PM2.5"].corr(pairs["PM10"])
         st.markdown(
-            '<div class="insight-kicker">'
-            'POLLUTANT RELATIONSHIP</div>',
+            f"""<div class="insight-card">
+                <div class="insight-kicker">Pollutant relationship</div>
+                <div class="insight-title">PM2.5 ↔ PM10</div>
+                <div class="insight-body">Korelasi Pearson: <b>{corr_value:.2f}</b>.</div>
+                <div class="insight-body">Korelasi menunjukkan hubungan linear, bukan sebab-akibat.</div>
+            </div>""",
             unsafe_allow_html=True,
         )
+    else:
+        st.info("Pasangan data PM2.5 dan PM10 belum cukup untuk menghitung korelasi.")
 
-        pairs = filtered[["PM2.5", "PM10"]].dropna()
-
-        st.markdown("### PM2.5 ↔ PM10")
-
-        if len(pairs) >= 2:
-            corr_value = pairs["PM2.5"].corr(pairs["PM10"])
-
-            st.markdown(
-                f"**Korelasi Pearson**  \n"
-                f"{corr_value:.2f}"
-            )
-
-            st.caption(
-                "Korelasi menunjukkan hubungan linear, "
-                "bukan bukti sebab-akibat."
-            )
-        else:
-            st.info("Data berpasangan belum cukup.")
 
 # =========================================================
 # 8. MONTHLY TRENDS
@@ -698,30 +963,59 @@ with left_corr:
 
 
 with right_corr:
-    st.markdown("#### PM2.5 dan PM10")
+    st.markdown("#### Eksplorasi hubungan antarvariabel")
 
-    scatter_data = filtered[["PM2.5", "PM10"]].dropna()
+    x_options = [
+        "PM2.5", "PM10", "SO2", "NO2", "CO",
+        "O3", "TEMP", "DEWP", "WSPM"
+    ]
 
-    if not scatter_data.empty:
+    x_variable = st.selectbox(
+        "Pilih variabel pada sumbu X",
+        options=x_options,
+        index=0,
+        key="scatter_x_variable",
+    )
+
+    y_options = [
+        column for column in x_options
+        if column != x_variable
+    ]
+
+    y_variable = st.selectbox(
+        "Pilih variabel pada sumbu Y",
+        options=y_options,
+        index=0,
+        key="scatter_y_variable",
+    )
+
+    scatter_data = filtered[
+        [x_variable, y_variable]
+    ].dropna()
+
+    if len(scatter_data) >= 2:
         total_pairs = len(scatter_data)
 
-        # Maksimal 5.000 titik untuk menjaga performa browser
         display_scatter = (
             scatter_data.sample(n=5000, random_state=42)
             if total_pairs > 5000
             else scatter_data
         )
 
+        scatter_corr = scatter_data[x_variable].corr(
+            scatter_data[y_variable]
+        )
+
         fig_scatter = px.scatter(
             display_scatter,
-            x="PM2.5",
-            y="PM10",
+            x=x_variable,
+            y=y_variable,
             opacity=0.35,
             render_mode="svg",
             color_discrete_sequence=["#22D3EE"],
             labels={
-                "PM2.5": "PM2.5 (µg/m³)",
-                "PM10": "PM10 (µg/m³)",
+                x_variable: x_variable,
+                y_variable: y_variable,
             },
         )
 
@@ -729,16 +1023,23 @@ with right_corr:
         fig_scatter.update_xaxes(gridcolor="#263852")
         fig_scatter.update_yaxes(gridcolor="#263852")
 
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        st.plotly_chart(
+            fig_scatter,
+            use_container_width=True,
+        )
 
         st.caption(
-            f"Total pasangan: {total_pairs:,}. "
-            f"Grafik menampilkan {len(display_scatter):,} titik. "
+            f"Korelasi Pearson {x_variable} dan {y_variable}: "
+            f"{scatter_corr:.2f}. "
+            f"Total pasangan data: {total_pairs:,}; "
+            f"titik yang ditampilkan: {len(display_scatter):,}. "
             "Korelasi tidak membuktikan sebab-akibat."
         )
-    else:
-        st.info("Tidak ada pasangan data PM2.5 dan PM10.")
 
+    else:
+        st.info(
+            "Data berpasangan tidak cukup untuk menampilkan scatter plot."
+        )
 
 # =========================================================
 # 12. RELATIVE PM2.5 CATEGORY / BINNING
@@ -751,39 +1052,26 @@ st.markdown(
 st.subheader("Distribusi Kategori Relatif PM2.5")
 
 st.caption(
-    "Kategori ini menggunakan tertil dari keseluruhan dataset, "
-    "bukan ambang resmi kualitas udara."
+    "Kategori relatif dibentuk dari sepertiga dan dua pertiga kuantil PM2.5 "
+    "pada dataset penuh agar perbandingan antarfilter tetap konsisten. "
+    "Kategori ini bukan ambang resmi kualitas udara."
 )
 
 category_col = "PM2.5_relative_category"
+valid_pm25 = df["PM2.5"].dropna()
 
-# Jika kolom kategori belum ada, bentuk tertil dari data PM2.5.
-if category_col not in filtered.columns:
-    valid_pm25 = df["PM2.5"].dropna()
-
-    if not valid_pm25.empty and valid_pm25.nunique() >= 3:
-        try:
-            q1, q2 = valid_pm25.quantile([1 / 3, 2 / 3]).tolist()
-
-            df[category_col] = pd.cut(
-                df["PM2.5"],
-                bins=[-float("inf"), q1, q2, float("inf")],
-                labels=[
-                    "Relatif rendah",
-                    "Relatif sedang",
-                    "Relatif tinggi",
-                ],
-                include_lowest=True,
-            )
-
-            # Samakan kategori ke data yang sedang difilter
-            filtered[category_col] = df.loc[
-                filtered.index, category_col
-            ]
-        except (ValueError, IndexError):
-            filtered[category_col] = pd.NA
-    else:
-        filtered[category_col] = pd.NA
+if not valid_pm25.empty and valid_pm25.nunique() >= 3:
+    # Ranking persentil menghindari error jika batas kuantil memiliki nilai sama.
+    pm25_percentile = df["PM2.5"].rank(method="average", pct=True)
+    df[category_col] = pd.cut(
+        pm25_percentile,
+        bins=[-float("inf"), 1 / 3, 2 / 3, float("inf")],
+        labels=["Relatif rendah", "Relatif sedang", "Relatif tinggi"],
+        include_lowest=True,
+    )
+    filtered[category_col] = df.loc[filtered.index, category_col]
+else:
+    filtered[category_col] = pd.NA
 
 
 category_labels = {
@@ -801,6 +1089,7 @@ category_labels = {
 
 cat_source = (
     filtered[category_col]
+    .astype("object")
     .fillna("Tidak diketahui")
     .astype(str)
     .map(
